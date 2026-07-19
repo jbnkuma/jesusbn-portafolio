@@ -29,8 +29,6 @@ jobs:
         run: npm run build
 
       - name: 🚀 Deploy to Firebase Hosting (GCP)
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only hosting
+        run: npx firebase-tools@latest deploy --only hosting --non-interactive
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
