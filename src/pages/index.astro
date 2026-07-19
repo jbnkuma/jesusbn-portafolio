@@ -1,0 +1,247 @@
+---
+import '../styles/global.css';
+---
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Jesus Becerril Navarrete | Senior Software Architect</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+	<script>
+		// Day/Night auto-detect: 06:00–18:00 = day, else Midnight Mode
+		(function () {
+			const hour = new Date().getHours();
+			const isNight = hour >= 18 || hour < 6;
+			if (isNight) document.documentElement.classList.add("dark");
+		})();
+	</script>
+</head>
+<body class="bg-stone-50 text-emerald-950 dark:bg-[#06211a] dark:text-stone-200 font-sans antialiased selection:bg-lime-400/30 overflow-x-hidden transition-colors duration-500">
+
+<!-- Ambient glows -->
+<div class="pointer-events-none fixed -top-44 -left-36 w-[600px] h-[600px] bg-amber-300/20 dark:bg-amber-300/10 blur-[110px] rounded-full"></div>
+<div class="pointer-events-none fixed top-56 -right-56 w-[700px] h-[700px] bg-lime-400/15 dark:bg-lime-400/10 blur-[110px] rounded-full"></div>
+
+<!-- NAV -->
+<nav class="relative z-10 max-w-6xl mx-auto px-8 py-7 flex items-center justify-between">
+	<div class="font-mono text-[15px] font-semibold text-emerald-950 dark:text-lime-50 tracking-tight">
+		JBN<span class="text-amber-600 dark:text-lime-400">.</span>dev
+	</div>
+	<div class="flex items-center gap-3">
+		<div class="flex items-center gap-2 font-mono text-xs text-emerald-800 dark:text-emerald-300 border border-emerald-900/10 dark:border-emerald-700/30 px-4 py-1.5 rounded-full bg-white/60 dark:bg-emerald-900/20 backdrop-blur-md">
+			<span class="w-1.5 h-1.5 rounded-full bg-lime-500 dark:bg-lime-400 shadow-[0_0_10px_3px_rgba(163,230,53,0.5)] animate-pulse"></span>
+			<span data-lang="es">Energía: Fluyendo</span>
+			<span data-lang="en" class="hidden">Energy: Flowing</span>
+		</div>
+		<div class="flex gap-1 border border-emerald-900/10 dark:border-emerald-700/30 rounded-full p-1 bg-white/60 dark:bg-emerald-900/20 backdrop-blur-md">
+			<button id="lang-es" class="font-mono text-[11px] font-bold px-3 py-1.5 rounded-full transition-colors">ES</button>
+			<button id="lang-en" class="font-mono text-[11px] font-bold px-3 py-1.5 rounded-full transition-colors">EN</button>
+		</div>
+	</div>
+</nav>
+
+<!-- HERO -->
+<section class="relative z-10 max-w-6xl mx-auto px-8 pt-24 pb-28 text-center">
+	<div class="inline-flex items-center gap-2 font-mono text-[13px] text-lime-400 dark:text-lime-300 bg-black/90 dark:bg-[#020806] border border-slate-700/50 dark:border-emerald-800/50 px-4 py-2 rounded-lg mb-7 shadow-inner shadow-black">
+		<span class="text-emerald-600 dark:text-emerald-500">jesus@sysadmin:~$</span>
+		<span>whoami -- Senior-Architect</span>
+		<span class="w-2 h-4 bg-lime-400/80 animate-pulse ml-0.5 inline-block align-middle"></span>
+	</div>
+	<h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-[1.05] tracking-tight mb-5 text-emerald-950 dark:text-green-50 text-wrap-pretty">
+		Jesus Becerril<br />Navarrete
+	</h1>
+	<p class="text-xl font-semibold mb-6 bg-gradient-to-r from-amber-600 via-lime-600 to-emerald-700 dark:from-amber-300 dark:via-lime-400 dark:to-emerald-400 bg-clip-text text-transparent">
+		Senior Software Architect | DevOps | Technical Mentor
+	</p>
+	<p class="max-w-xl mx-auto text-lg leading-relaxed text-emerald-900/70 dark:text-emerald-200/70 mb-10 text-wrap-pretty">
+		<span data-lang="es">Más de 14 años diseñando sistemas de misión crítica, implementando arquitecturas cloud-native y liderando equipos hacia la excelencia técnica. Apasionado por la observabilidad, la eficiencia y el código limpio.</span>
+		<span data-lang="en" class="hidden">Over 14 years designing mission-critical systems, implementing cloud-native architectures, and leading teams toward technical excellence. Passionate about observability, efficiency, and clean code.</span>
+	</p>
+	<div class="flex gap-4 justify-center flex-wrap">
+		<a href="mailto:jesusbn5@protonmail.com" class="px-8 py-3.5 rounded-2xl font-semibold text-sm text-emerald-950 bg-gradient-to-br from-amber-400 to-lime-500 dark:from-amber-300 dark:to-lime-400 shadow-lg shadow-amber-500/20 dark:shadow-lime-500/20 hover:shadow-amber-500/30 dark:hover:shadow-lime-400/30 transition-shadow">
+			<span data-lang="es">Contactar</span>
+			<span data-lang="en" class="hidden">Contact</span>
+		</a>
+		<a href="https://github.com" target="_blank" rel="noopener" class="px-8 py-3.5 rounded-2xl font-semibold text-sm text-emerald-950 dark:text-emerald-50 border border-emerald-900/15 dark:border-emerald-700/30 bg-white/60 dark:bg-emerald-900/20 backdrop-blur-md hover:border-amber-500/40 dark:hover:border-lime-400/40 hover:bg-white/80 dark:hover:bg-emerald-900/35 transition-colors">
+			GitHub
+		</a>
+	</div>
+</section>
+
+<!-- ARQUITECTURA & CASOS DE ESTUDIO (FEATURED) -->
+<section class="relative z-10 max-w-6xl mx-auto px-8 pb-28">
+	<div class="mb-12 text-center">
+		<div class="font-mono text-xs text-emerald-700 dark:text-lime-400 tracking-widest uppercase mb-2">
+
+			<span data-lang="en" class="hidden">02 // Featured Case Study</span>
+		</div>
+		<h2 class="text-4xl font-extrabold tracking-tight text-emerald-950 dark:text-green-50">
+			<span data-lang="es">Arquitectura en Producción</span>
+			<span data-lang="en" class="hidden">Architecture in Production</span>
+		</h2>
+	</div>
+
+	<!-- TARJETA CENTRADA (FEATURED PROJECT) -->
+	<div class="max-w-3xl mx-auto">
+		<a href="/projects/observability" class="group block bg-white/55 dark:bg-emerald-900/20 backdrop-blur-lg border border-emerald-900/10 dark:border-emerald-700/30 rounded-3xl p-10 transition-all duration-300 hover:border-amber-500/40 dark:hover:border-amber-300/40 hover:bg-white/75 dark:hover:bg-emerald-900/30 hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-1 cursor-pointer">
+			<div class="flex items-center gap-4 mb-6">
+				<div class="w-14 h-14 rounded-2xl bg-amber-500/10 dark:bg-amber-300/10 flex items-center justify-center text-2xl shadow-inner">
+					☀️
+				</div>
+				<h3 class="text-2xl font-bold text-emerald-950 dark:text-green-50 tracking-tight flex-1 flex justify-between items-center">
+            <span>
+              <span data-lang="es">Observabilidad Distribuida & CI/CD</span>
+              <span data-lang="en" class="hidden">Distributed Observability & CI/CD</span>
+            </span>
+					<span class="text-amber-500 opacity-0 group-hover:opacity-100 transition-opacity translate-x-[-10px] group-hover:translate-x-0 duration-300">→</span>
+				</h3>
+			</div>
+
+			<p class="text-[15.5px] leading-relaxed text-emerald-900/70 dark:text-emerald-200/70 mb-8 max-w-2xl">
+				<span data-lang="es">Diseño de backends de misión crítica en Python (FastAPI) integrando telemetría profunda con OpenTelemetry. Estrategia de despliegues Zero-Downtime vía GitLab CI hacia entornos contenerizados y monitoreados con Prometheus.</span>
+				<span data-lang="en" class="hidden">Designing mission-critical Python (FastAPI) backends integrating deep telemetry with OpenTelemetry. Zero-Downtime deployment strategy via GitLab CI to containerized environments monitored by Prometheus.</span>
+			</p>
+
+			<div class="flex flex-wrap gap-2.5">
+				{["FastAPI", "OpenTelemetry", "Prometheus", "GitLab CI", "Docker", "DevSecOps"].map((tag) => (
+					<span class="font-mono text-xs font-semibold text-amber-800 dark:text-amber-200 bg-amber-500/10 dark:bg-amber-300/10 border border-amber-500/20 dark:border-amber-300/20 px-3 py-1.5 rounded-lg">
+              {tag}
+            </span>
+				))}
+			</div>
+		</a>
+	</div>
+</section>
+
+
+<!-- MENTORIA (NobleProg Track Record) -->
+<section class="relative z-10 max-w-6xl mx-auto px-8 pb-28">
+	<div class="bg-gradient-to-br from-amber-400/10 to-lime-400/5 dark:from-amber-300/[.06] dark:to-lime-400/[.05] border border-emerald-900/10 dark:border-emerald-700/30 rounded-[2rem] p-12">
+
+		<div class="font-mono text-xs text-emerald-700 dark:text-lime-400 tracking-widest uppercase mb-2">
+
+		</div>
+
+		<h2 class="text-3xl font-extrabold tracking-tight text-emerald-950 dark:text-green-50 mb-4">
+			<span data-lang="es">Mentoría e Instrucción Técnica Corporativa</span>
+			<span data-lang="en" class="hidden">Corporate Mentorship &amp; Technical Instruction</span>
+		</h2>
+
+		<p class="text-base leading-relaxed text-emerald-900/70 dark:text-emerald-200/70 max-w-2xl mb-10">
+			<span data-lang="es">Como instructor oficial, elevo el nivel de ingeniería de las empresas capacitando a sus equipos de TI en tecnologías Cloud-Native, Seguridad y Arquitectura de Software basadas en escenarios reales de producción.</span>
+			<span data-lang="en" class="hidden">As an official instructor, I raise companies' engineering bar by training their IT teams in Cloud-Native technologies, Security, and Software Architecture based on real-world production scenarios.</span>
+		</p>
+
+		<!-- Historial de Cursos (Estilo Terminal / Log) -->
+		<div class="bg-white/50 dark:bg-[#021b10] border border-emerald-900/10 dark:border-emerald-700/30 rounded-2xl p-6 shadow-inner">
+			<h3 class="font-mono text-xs text-emerald-800 dark:text-lime-500 mb-5 font-bold uppercase tracking-wider border-b border-emerald-900/10 dark:border-emerald-700/30 pb-3">
+				<span data-lang="es">Historial de Capacitaciones Destacadas</span>
+				<span data-lang="en" class="hidden">Highlighted Training Track Record</span>
+			</h3>
+
+			<div class="space-y-4">
+				{[
+					{ date: "2026/2025", course: "Rocky Linux for Administrators", icon: "🐧" },
+					{ date: "2024", course: "Docker y Kubernetes", icon: "🐳" },
+					{ date: "2024", course: "Ruta Cloud (Niveles 1, 2 y 3)", icon: "☁️" },
+					{ date: "2023", course: "Desarrollo y Pruebas Seguras de Aplicaciones Web (AppSec)", icon: "🛡️" },
+					{ date: "2023", course: "Arquitectura Técnica y Patrones de Diseño", icon: "🏗️" },
+					{ date: "2024", course: "JMeter & Pruebas de Carga", icon: "⚡" }
+				].map((item) => (
+					<div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 group">
+						<div class="font-mono text-xs text-emerald-600/70 dark:text-emerald-500/70 w-20 shrink-0">
+							[{item.date}]
+						</div>
+						<div class="flex items-center gap-3 flex-1">
+							<span class="text-lg opacity-80 group-hover:opacity-100 transition-opacity">{item.icon}</span>
+							<span class="text-sm font-semibold text-emerald-950 dark:text-emerald-100 group-hover:text-amber-600 dark:group-hover:text-lime-300 transition-colors">
+                  {item.course}
+                </span>
+						</div>
+						<div class="hidden sm:block font-mono text-[10px] text-emerald-800/50 dark:text-emerald-700/50 border border-emerald-900/10 dark:border-emerald-700/30 px-2 py-0.5 rounded">
+							VERIFIED
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+
+	</div>
+</section>
+
+<!-- HOME LAB -->
+<section class="relative z-10 max-w-6xl mx-auto px-8 pb-28">
+	<div class="bg-white/55 dark:bg-emerald-900/20 backdrop-blur-lg border border-emerald-900/10 dark:border-emerald-700/30 rounded-[2rem] p-12 grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-10 items-center">
+		<div>
+
+			<h2 class="text-3xl font-extrabold tracking-tight text-emerald-950 dark:text-green-50 mb-4">Proxmox VE Cluster</h2>
+			<p class="text-[15px] leading-relaxed text-emerald-900/70 dark:text-emerald-200/70">
+				<span data-lang="es">Mantenimiento de infraestructura On-Premise para entornos críticos. Máquinas virtuales con GPU Passthrough, servidor Gitea privado, y self-hosted runners para pipelines CI/CD.</span>
+				<span data-lang="en" class="hidden">Maintaining on-premise infrastructure for critical environments. VMs with GPU passthrough, a private Gitea server, and self-hosted runners for CI/CD pipelines.</span>
+			</p>
+		</div>
+		<div class="bg-emerald-950/[.03] dark:bg-[#021b10] border border-emerald-900/10 dark:border-emerald-700/35 rounded-2xl p-6 font-mono text-[13px] shadow-lg shadow-amber-500/5 dark:shadow-lime-500/10">
+			<div class="flex items-center gap-2.5 mb-3.5">
+				<span class="w-2 h-2 rounded-full bg-lime-500 dark:bg-lime-400 shadow-[0_0_12px_4px_rgba(163,230,53,0.6)] animate-pulse"></span>
+				<span class="text-lime-700 dark:text-lime-400 font-semibold">
+            <span data-lang="es">Status: Operativo</span>
+            <span data-lang="en" class="hidden">Status: Operational</span>
+          </span>
+			</div>
+			<div class="flex items-center gap-2.5 mb-5">
+				<span class="w-2 h-2 rounded-full bg-amber-500 dark:bg-amber-300 shadow-[0_0_12px_4px_rgba(252,211,77,0.5)] animate-pulse"></span>
+				<span class="text-amber-700 dark:text-amber-300 font-semibold">
+            <span data-lang="es">Pipeline: Activo</span>
+            <span data-lang="en" class="hidden">Pipeline: Active</span>
+          </span>
+			</div>
+			<div class="text-emerald-900/50 dark:text-emerald-700 leading-loose">
+				$ pvesh get /cluster/status<br />
+				<span class="text-emerald-900/40 dark:text-emerald-600">→ node01 ... online</span><br />
+				<span class="text-emerald-900/40 dark:text-emerald-600">→ gitea.local ... ok</span><br />
+				<span class="text-emerald-900/40 dark:text-emerald-600">→ runner-01 ... idle</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<footer id="contact" class="relative z-10 max-w-6xl mx-auto px-8 pb-16 text-center border-t border-emerald-900/10 dark:border-emerald-700/30 pt-9">
+	<p class="font-mono text-[12.5px] text-emerald-900/50 dark:text-emerald-700">© 2026 Jesus Becerril Navarrete — Solarpunk edition.</p>
+	<a href="https://linuxcounter.net/" target="_blank" rel="noopener" class="font-mono text-[10px] text-emerald-900/30 dark:text-emerald-800 hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors">
+		GNU/Linux Registered User #404619
+	</a>
+</footer>
+
+<script>
+	// ES/EN switch: toggles data-lang elements, defaults to Spanish
+	(function () {
+		const btnEs = document.getElementById("lang-es");
+		const btnEn = document.getElementById("lang-en");
+
+		function setLang(lang) {
+			document.querySelectorAll('[data-lang="es"]').forEach((el) => {
+				el.classList.toggle("hidden", lang !== "es");
+			});
+			document.querySelectorAll('[data-lang="en"]').forEach((el) => {
+				el.classList.toggle("hidden", lang !== "en");
+			});
+			const isDark = document.documentElement.classList.contains("dark");
+			const activeBg = isDark ? "bg-lime-400 text-emerald-950" : "bg-amber-500 text-white";
+			btnEs.className = "font-mono text-[11px] font-bold px-3 py-1.5 rounded-full transition-colors " +
+				(lang === "es" ? activeBg : (isDark ? "text-emerald-300" : "text-emerald-800"));
+			btnEn.className = "font-mono text-[11px] font-bold px-3 py-1.5 rounded-full transition-colors " +
+				(lang === "en" ? activeBg : (isDark ? "text-emerald-300" : "text-emerald-800"));
+			localStorage.setItem("portfolio-lang", lang);
+		}
+
+		btnEs.addEventListener("click", () => setLang("es"));
+		btnEn.addEventListener("click", () => setLang("en"));
+
+		const saved = localStorage.getItem("portfolio-lang") || "es";
+		setLang(saved);
+	})();
+</script>
+
+</body>
+</html>
