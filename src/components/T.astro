@@ -1,0 +1,21 @@
+---
+import { translations, type TranslationKey } from '../i18n';
+
+interface Props {
+    k: TranslationKey;
+    html?: boolean;
+}
+
+const { k, html = false } = Astro.props;
+---
+{html ? (
+<>
+    <span data-lang="es" set:html={translations.es[k]} />
+    <span data-lang="en" class="hidden" set:html={translations.en[k]} />
+</>
+    ) : (
+<>
+    <span data-lang="es">{translations.es[k]}</span>
+    <span data-lang="en" class="hidden">{translations.en[k]}</span>
+</>
+    )}

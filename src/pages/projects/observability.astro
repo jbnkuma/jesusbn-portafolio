@@ -1,5 +1,10 @@
 ---
 import '../../styles/global.css';
+import T from '../../components/T.astro';
+import { translations } from '../../i18n';
+
+const heroTags = ["FastAPI", "OpenTelemetry", "GitLab CI"];
+const fig1Alt = translations.es["obs.fig1.alt"];
 ---
 <html lang="es">
 <head>
@@ -32,95 +37,80 @@ import '../../styles/global.css';
     </div>
 </nav>
 
-<!-- HERO -->
+
 <header class="relative z-10 max-w-4xl mx-auto px-8 pt-4 pb-16">
     <div class="bg-white/55 dark:bg-emerald-900/20 backdrop-blur-xl border border-emerald-900/10 dark:border-emerald-700/30 rounded-[2rem] p-11">
         <div class="font-mono text-xs text-emerald-700 dark:text-lime-400 tracking-widest uppercase mb-4">
-            <span data-lang="es">Caso de Estudio Arquitectónico</span>
-            <span data-lang="en" class="hidden">Architectural Case Study</span>
+            <T k="obs.eyebrow" />
         </div>
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight mb-4 text-emerald-950 dark:text-green-50">
-            <span data-lang="es">Observabilidad Distribuida &amp; CI/CD</span>
-            <span data-lang="en" class="hidden">Distributed Observability &amp; CI/CD</span>
+            <T k="casestudy.card.title" />
         </h1>
         <p class="text-lg leading-relaxed text-emerald-900/70 dark:text-emerald-200/70 max-w-xl">
-            <span data-lang="es">Implementando OpenTelemetry y Prometheus en microservicios FastAPI.</span>
-            <span data-lang="en" class="hidden">Implementing OpenTelemetry and Prometheus in FastAPI microservices.</span>
+            <T k="obs.hero.desc" />
         </p>
         <div class="flex flex-wrap gap-2 mt-6">
-            {["FastAPI", "OpenTelemetry", "GitLab CI"].map((tag) => (
+            {heroTags.map((tag) => (
                     <span class="font-mono text-[11.5px] text-amber-800 dark:text-amber-200 bg-amber-500/10 dark:bg-amber-300/10 border border-amber-500/20 dark:border-amber-300/20 px-2.5 py-1 rounded-lg">{tag}</span>
             ))}
         </div>
     </div>
 </header>
 
-<!-- ARTICLE -->
+
 <article class="relative z-10 max-w-3xl mx-auto px-8 pb-16">
 
     <section class="mb-11">
         <h2 class="text-2xl font-extrabold tracking-tight mb-4 text-emerald-700 dark:text-lime-400">
-            <span data-lang="es">El Reto de Negocio</span>
-            <span data-lang="en" class="hidden">The Business Challenge</span>
+            <T k="obs.challenge.title" />
         </h2>
         <p class="text-[17px] leading-loose text-emerald-950/90 dark:text-stone-200/90">
-            <span data-lang="es">En un ecosistema de microservicios, una petición puede atravesar múltiples contenedores. El reto era eliminar el "punto ciego" operativo: reducir el tiempo de resolución de incidentes (MTTR) y garantizar despliegues seguros sin afectar la disponibilidad del servicio.</span>
-            <span data-lang="en" class="hidden">In a microservices ecosystem, a single request can traverse multiple containers. The challenge was eliminating the operational "blind spot": reducing incident resolution time (MTTR) and guaranteeing safe deployments without affecting service availability.</span>
+            <T k="obs.challenge.body" />
         </p>
     </section>
 
-    <!-- IMAGE PLACEHOLDER -->
-    <!-- DIAGRAMA DE ARQUITECTURA REAL -->
+
     <figure class="my-14">
         <div class="p-4 bg-white/40 dark:bg-emerald-900/10 backdrop-blur-md border border-emerald-900/10 dark:border-emerald-700/30 rounded-[2rem] shadow-xl shadow-lime-500/5 relative overflow-hidden group">
 
-            <!-- Efecto de brillo detrás de la imagen en modo noche -->
+
             <div class="absolute inset-0 bg-gradient-to-tr from-lime-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
             <img
                     src="/diagrama-k8s.jpg"
-                    alt="Diagrama de Implementación de API en Kubernetes"
+                    alt={fig1Alt}
                     class="w-full h-auto rounded-2xl relative z-10"
                     loading="lazy"
             />
         </div>
 
-        <!-- Pie de foto técnico -->
+
         <figcaption class="mt-5 text-center px-4">
             <p class="font-mono text-[12.5px] text-emerald-800/70 dark:text-emerald-300/60 leading-relaxed">
-          <span data-lang="es">
-            <strong>Fig 1. Topología de Red y Orquestación:</strong> Clúster distribuido en Kubernetes gestionado vía Portainer. Separación física de tráfico mediante Apache APISIX (API Gateway) y segmentación de entornos (Pre/Prod) con acceso aislado a bases de datos.
-          </span>
-                <span data-lang="en" class="hidden">
-            <strong>Fig 1. Network Topology & Orchestration:</strong> Distributed Kubernetes cluster managed via Portainer. Physical traffic separation using Apache APISIX (API Gateway) and environment segmentation (Pre/Prod) with isolated database access.
-          </span>
+                <T k="obs.fig1.caption" html />
             </p>
         </figcaption>
     </figure>
 
     <section class="mb-11">
         <h2 class="text-2xl font-extrabold tracking-tight mb-4 text-emerald-700 dark:text-lime-400">
-            <span data-lang="es">Diseño de la Solución & Trazabilidad</span>
-            <span data-lang="en" class="hidden">Solution Design & Traceability</span>
+            <T k="obs.solution.title" />
         </h2>
         <p class="text-[17px] leading-loose text-emerald-950/90 dark:text-stone-200/90 mb-4">
-            <span data-lang="es">Se optó por el estándar <strong>OpenTelemetry (OTel)</strong> para la recolección de trazas y <strong>Prometheus</strong> para métricas. El backend fue diseñado en Python utilizando <strong>FastAPI</strong>, aprovechando su naturaleza asíncrona (ASGI) para no penalizar el rendimiento del negocio durante la telemetría.</span>
-            <span data-lang="en" class="hidden">We adopted the <strong>OpenTelemetry (OTel)</strong> standard for trace collection and <strong>Prometheus</strong> for metrics. The backend was designed in Python using <strong>FastAPI</strong>, leveraging its asynchronous nature (ASGI) to avoid penalizing business performance during telemetry generation.</span>
+            <T k="obs.solution.body" html />
         </p>
 
-        <!-- NUEVO ARGUMENTO DE DB Y TERCEROS -->
+
         <div class="border-l-4 border-amber-500/50 dark:border-lime-400/50 pl-5 py-1 my-6 bg-amber-500/5 dark:bg-lime-400/5 rounded-r-xl">
             <p class="text-[16px] leading-relaxed text-emerald-900/80 dark:text-stone-300">
-                <span data-lang="es"><strong>Observabilidad Profunda:</strong> Esta implementación instrumenta automáticamente las conexiones a la base de datos, permitiendo detectar <em>Slow Queries</em> (consultas de alto consumo de tiempo) a nivel de ORM. Asimismo, todas las peticiones a sistemas de terceros (APIs externas) quedan registradas con <code>Spans</code> dedicados, brindando un mapa de dependencias claro que expone tiempos de latencia y tasas de error en tiempo real.</span>
-                <span data-lang="en" class="hidden"><strong>Deep Observability:</strong> This implementation automatically instruments database connections, allowing the detection of <em>Slow Queries</em> at the ORM level. Furthermore, all outbound requests to third-party systems (External APIs) are recorded with dedicated <code>Spans</code>, providing a clear dependency map that exposes latency times and error rates in real-time.</span>
+                <T k="obs.solution.callout" html />
             </p>
         </div>
     </section>
 
     <div class="mb-11">
         <h3 class="font-mono text-sm text-emerald-700 dark:text-lime-400 mb-3 font-bold uppercase tracking-wide">
-            <span data-lang="es">Snippet: api/src/core/infrastructure/telemetry.py</span>
-            <span data-lang="en" class="hidden">Snippet: api/src/core/infrastructure/telemetry.py</span>
+            Snippet: api/src/core/infrastructure/telemetry.py
         </h3>
         <div class="bg-[#0d1522] border border-emerald-900/30 rounded-2xl p-5 shadow-inner overflow-x-auto">
 <pre class="font-mono text-[13px] leading-relaxed text-slate-300"><code><span class="text-pink-400">from</span> opentelemetry <span class="text-pink-400">import</span> trace, metrics
@@ -159,19 +149,16 @@ import '../../styles/global.css';
 
     <section class="mb-11">
         <h2 class="text-2xl font-extrabold tracking-tight mb-4 text-emerald-700 dark:text-lime-400">
-            <span data-lang="es">Implementación CI/CD (GitLab)</span>
-            <span data-lang="en" class="hidden">CI/CD Implementation (GitLab)</span>
+            <T k="obs.cicd.title" />
         </h2>
         <p class="text-[17px] leading-loose text-emerald-950/90 dark:text-stone-200/90">
-            <span data-lang="es">La entrega continua se orquestó mediante GitLab CI. El pipeline incluye validación de código (SAST), construcción de imágenes Docker multi-stage y un despliegue bajo estrategia Rolling Update para asegurar Zero-Downtime.</span>
-            <span data-lang="en" class="hidden">Continuous delivery was orchestrated via GitLab CI. The pipeline includes code validation (SAST), multi-stage Docker image builds, and a Rolling Update deployment strategy to ensure Zero-Downtime.</span>
+            <T k="obs.cicd.body" />
         </p>
     </section>
-    <!-- EJEMPLO DE YAML DE GITLAB -->
+
     <div class="mt-6 mb-11">
         <h3 class="font-mono text-sm text-emerald-700 dark:text-lime-400 mb-3 font-bold uppercase tracking-wide">
-            <span data-lang="es">Snippet: .gitlab-ci.yml (DevSecOps Pipeline)</span>
-            <span data-lang="en" class="hidden">Snippet: .gitlab-ci.yml (DevSecOps Pipeline)</span>
+            Snippet: .gitlab-ci.yml (DevSecOps Pipeline)
         </h3>
         <div class="bg-[#0d1522] border border-emerald-900/30 rounded-2xl p-5 shadow-inner overflow-x-auto">
 <pre class="font-mono text-[13px] leading-relaxed text-slate-300"><code><span class="text-lime-400">stages:</span>
@@ -221,8 +208,7 @@ import '../../styles/global.css';
     </div>
     <section>
         <h2 class="text-2xl font-extrabold tracking-tight mb-5 text-emerald-700 dark:text-lime-400">
-            <span data-lang="es">Impacto y Métricas</span>
-            <span data-lang="en" class="hidden">Impact &amp; Metrics</span>
+            <T k="obs.impact.title" />
         </h2>
 
         <div class="bg-white/60 dark:bg-emerald-900/25 backdrop-blur-lg border border-lime-600/25 dark:border-lime-400/30 rounded-3xl p-8 shadow-lg shadow-lime-500/10">
@@ -230,12 +216,10 @@ import '../../styles/global.css';
                 <span class="text-xl flex-shrink-0">⚡</span>
                 <div>
                     <div class="font-mono text-[13px] font-bold uppercase tracking-wide text-emerald-700 dark:text-lime-400 mb-1.5">
-                        <span data-lang="es">Reducción del MTTR</span>
-                        <span data-lang="en" class="hidden">MTTR Reduction</span>
+                        <T k="obs.impact.mttr.title" />
                     </div>
                     <p class="text-[15px] leading-relaxed text-emerald-950/85 dark:text-stone-200/85">
-                        <span data-lang="es">El equipo traza el origen exacto de un error en menos de 2 minutos gracias al traceId propagado.</span>
-                        <span data-lang="en" class="hidden">The team traces the exact origin of an error in under 2 minutes thanks to the propagated traceId.</span>
+                        <T k="obs.impact.mttr.body" />
                     </p>
                 </div>
             </div>
@@ -244,12 +228,10 @@ import '../../styles/global.css';
                 <span class="text-xl flex-shrink-0">🚀</span>
                 <div>
                     <div class="font-mono text-[13px] font-bold uppercase tracking-wide text-emerald-700 dark:text-lime-400 mb-1.5">
-                        <span data-lang="es">Velocidad</span>
-                        <span data-lang="en" class="hidden">Speed</span>
+                        <T k="obs.impact.speed.title" />
                     </div>
                     <p class="text-[15px] leading-relaxed text-emerald-950/85 dark:text-stone-200/85">
-                        <span data-lang="es">El pipeline automatizado redujo el tiempo de pase a producción de horas a minutos.</span>
-                        <span data-lang="en" class="hidden">The automated pipeline cut production release time from hours to minutes.</span>
+                        <T k="obs.impact.speed.body" />
                     </p>
                 </div>
             </div>
@@ -260,7 +242,9 @@ import '../../styles/global.css';
 </article>
 
 <footer class="relative z-10 max-w-3xl mx-auto px-8 pb-16 text-center border-t border-emerald-900/10 dark:border-emerald-700/30 pt-8">
-    <p class="font-mono text-[12.5px] text-emerald-900/50 dark:text-emerald-700">© 2026 Jesus Becerril Navarrete — Caso de estudio.</p>
+    <p class="font-mono text-[12.5px] text-emerald-900/50 dark:text-emerald-700">
+        <T k="obs.footer" />
+    </p>
 </footer>
 
 <script>
@@ -271,6 +255,7 @@ import '../../styles/global.css';
         function setLang(lang) {
             document.querySelectorAll('[data-lang="es"]').forEach((el) => el.classList.toggle("hidden", lang !== "es"));
             document.querySelectorAll('[data-lang="en"]').forEach((el) => el.classList.toggle("hidden", lang !== "en"));
+            document.documentElement.lang = lang;
             const isDark = document.documentElement.classList.contains("dark");
             const activeBg = isDark ? "bg-lime-400 text-emerald-950" : "bg-amber-500 text-white";
             btnEs.className = "font-mono text-[11px] font-bold px-3 py-1.5 rounded-full transition-colors " +

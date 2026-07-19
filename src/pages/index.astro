@@ -1,5 +1,10 @@
 ---
 import '../styles/global.css';
+import T from '../components/T.astro';
+import { getBilingualCourses } from '../i18n';
+
+const courses = getBilingualCourses();
+const featuredTags = ["FastAPI", "OpenTelemetry", "Prometheus", "GitLab CI", "Docker", "DevSecOps"];
 ---
 <html lang="es">
 <head>
@@ -31,8 +36,7 @@ import '../styles/global.css';
 	<div class="flex items-center gap-3">
 		<div class="flex items-center gap-2 font-mono text-xs text-emerald-800 dark:text-emerald-300 border border-emerald-900/10 dark:border-emerald-700/30 px-4 py-1.5 rounded-full bg-white/60 dark:bg-emerald-900/20 backdrop-blur-md">
 			<span class="w-1.5 h-1.5 rounded-full bg-lime-500 dark:bg-lime-400 shadow-[0_0_10px_3px_rgba(163,230,53,0.5)] animate-pulse"></span>
-			<span data-lang="es">Energía: Fluyendo</span>
-			<span data-lang="en" class="hidden">Energy: Flowing</span>
+			<T k="nav.energy" />
 		</div>
 		<div class="flex gap-1 border border-emerald-900/10 dark:border-emerald-700/30 rounded-full p-1 bg-white/60 dark:bg-emerald-900/20 backdrop-blur-md">
 			<button id="lang-es" class="font-mono text-[11px] font-bold px-3 py-1.5 rounded-full transition-colors">ES</button>
@@ -55,13 +59,11 @@ import '../styles/global.css';
 		Senior Software Architect | DevOps | Technical Mentor
 	</p>
 	<p class="max-w-xl mx-auto text-lg leading-relaxed text-emerald-900/70 dark:text-emerald-200/70 mb-10 text-wrap-pretty">
-		<span data-lang="es">Más de 14 años diseñando sistemas de misión crítica, implementando arquitecturas cloud-native y liderando equipos hacia la excelencia técnica. Apasionado por la observabilidad, la eficiencia y el código limpio.</span>
-		<span data-lang="en" class="hidden">Over 14 years designing mission-critical systems, implementing cloud-native architectures, and leading teams toward technical excellence. Passionate about observability, efficiency, and clean code.</span>
+		<T k="hero.bio" />
 	</p>
 	<div class="flex gap-4 justify-center flex-wrap">
 		<a href="mailto:jesusbn5@protonmail.com" class="px-8 py-3.5 rounded-2xl font-semibold text-sm text-emerald-950 bg-gradient-to-br from-amber-400 to-lime-500 dark:from-amber-300 dark:to-lime-400 shadow-lg shadow-amber-500/20 dark:shadow-lime-500/20 hover:shadow-amber-500/30 dark:hover:shadow-lime-400/30 transition-shadow">
-			<span data-lang="es">Contactar</span>
-			<span data-lang="en" class="hidden">Contact</span>
+			<T k="hero.contact" />
 		</a>
 		<a href="https://github.com" target="_blank" rel="noopener" class="px-8 py-3.5 rounded-2xl font-semibold text-sm text-emerald-950 dark:text-emerald-50 border border-emerald-900/15 dark:border-emerald-700/30 bg-white/60 dark:bg-emerald-900/20 backdrop-blur-md hover:border-amber-500/40 dark:hover:border-lime-400/40 hover:bg-white/80 dark:hover:bg-emerald-900/35 transition-colors">
 			GitHub
@@ -72,13 +74,8 @@ import '../styles/global.css';
 <!-- ARQUITECTURA & CASOS DE ESTUDIO (FEATURED) -->
 <section class="relative z-10 max-w-6xl mx-auto px-8 pb-28">
 	<div class="mb-12 text-center">
-		<div class="font-mono text-xs text-emerald-700 dark:text-lime-400 tracking-widest uppercase mb-2">
-
-			<span data-lang="en" class="hidden">02 // Featured Case Study</span>
-		</div>
 		<h2 class="text-4xl font-extrabold tracking-tight text-emerald-950 dark:text-green-50">
-			<span data-lang="es">Arquitectura en Producción</span>
-			<span data-lang="en" class="hidden">Architecture in Production</span>
+			<T k="casestudy.title" />
 		</h2>
 	</div>
 
@@ -91,20 +88,18 @@ import '../styles/global.css';
 				</div>
 				<h3 class="text-2xl font-bold text-emerald-950 dark:text-green-50 tracking-tight flex-1 flex justify-between items-center">
             <span>
-              <span data-lang="es">Observabilidad Distribuida & CI/CD</span>
-              <span data-lang="en" class="hidden">Distributed Observability & CI/CD</span>
+              <T k="casestudy.card.title" />
             </span>
 					<span class="text-amber-500 opacity-0 group-hover:opacity-100 transition-opacity translate-x-[-10px] group-hover:translate-x-0 duration-300">→</span>
 				</h3>
 			</div>
 
 			<p class="text-[15.5px] leading-relaxed text-emerald-900/70 dark:text-emerald-200/70 mb-8 max-w-2xl">
-				<span data-lang="es">Diseño de backends de misión crítica en Python (FastAPI) integrando telemetría profunda con OpenTelemetry. Estrategia de despliegues Zero-Downtime vía GitLab CI hacia entornos contenerizados y monitoreados con Prometheus.</span>
-				<span data-lang="en" class="hidden">Designing mission-critical Python (FastAPI) backends integrating deep telemetry with OpenTelemetry. Zero-Downtime deployment strategy via GitLab CI to containerized environments monitored by Prometheus.</span>
+				<T k="casestudy.card.desc" />
 			</p>
 
 			<div class="flex flex-wrap gap-2.5">
-				{["FastAPI", "OpenTelemetry", "Prometheus", "GitLab CI", "Docker", "DevSecOps"].map((tag) => (
+				{featuredTags.map((tag) => (
 					<span class="font-mono text-xs font-semibold text-amber-800 dark:text-amber-200 bg-amber-500/10 dark:bg-amber-300/10 border border-amber-500/20 dark:border-amber-300/20 px-3 py-1.5 rounded-lg">
               {tag}
             </span>
@@ -119,37 +114,22 @@ import '../styles/global.css';
 <section class="relative z-10 max-w-6xl mx-auto px-8 pb-28">
 	<div class="bg-gradient-to-br from-amber-400/10 to-lime-400/5 dark:from-amber-300/[.06] dark:to-lime-400/[.05] border border-emerald-900/10 dark:border-emerald-700/30 rounded-[2rem] p-12">
 
-		<div class="font-mono text-xs text-emerald-700 dark:text-lime-400 tracking-widest uppercase mb-2">
-
-		</div>
-
 		<h2 class="text-3xl font-extrabold tracking-tight text-emerald-950 dark:text-green-50 mb-4">
-			<span data-lang="es">Mentoría e Instrucción Técnica Corporativa</span>
-			<span data-lang="en" class="hidden">Corporate Mentorship &amp; Technical Instruction</span>
+			<T k="mentoring.title" />
 		</h2>
 
 		<p class="text-base leading-relaxed text-emerald-900/70 dark:text-emerald-200/70 max-w-2xl mb-10">
-			<span data-lang="es">Como instructor oficial, elevo el nivel de ingeniería de las empresas capacitando a sus equipos de TI en tecnologías Cloud-Native, Seguridad y Arquitectura de Software basadas en escenarios reales de producción.</span>
-			<span data-lang="en" class="hidden">As an official instructor, I raise companies' engineering bar by training their IT teams in Cloud-Native technologies, Security, and Software Architecture based on real-world production scenarios.</span>
+			<T k="mentoring.desc" />
 		</p>
 
 		<!-- Historial de Cursos (Estilo Terminal / Log) -->
 		<div class="bg-white/50 dark:bg-[#021b10] border border-emerald-900/10 dark:border-emerald-700/30 rounded-2xl p-6 shadow-inner">
 			<h3 class="font-mono text-xs text-emerald-800 dark:text-lime-500 mb-5 font-bold uppercase tracking-wider border-b border-emerald-900/10 dark:border-emerald-700/30 pb-3">
-				<span data-lang="es">Historial de Capacitaciones Destacadas</span>
-				<span data-lang="en" class="hidden">Highlighted Training Track Record</span>
+				<T k="training.header" />
 			</h3>
 
 			<div class="space-y-4">
-				{[
-					{ date: "2026/2025", course: "Rocky Linux for Administrators", icon: "🐧" },
-					{ date: "2024", course: "Docker y Kubernetes", icon: "🐳" },
-					{ date: "2024", course: "Ruta Cloud (Niveles 1, 2 y 3)", icon: "☁️" },
-					{ date: "2024", course: "JMeter & Pruebas de Carga", icon: "⚡" },
-					{ date: "2023", course: "Desarrollo y Pruebas Seguras de Aplicaciones Web (AppSec)", icon: "🛡️" },
-					{ date: "2023", course: "Arquitectura Técnica y Patrones de Diseño", icon: "🏗️" }
-
-				].map((item) => (
+				{courses.map((item) => (
 					<div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 group">
 						<div class="font-mono text-xs text-emerald-600/70 dark:text-emerald-500/70 w-20 shrink-0">
 							[{item.date}]
@@ -157,8 +137,9 @@ import '../styles/global.css';
 						<div class="flex items-center gap-3 flex-1">
 							<span class="text-lg opacity-80 group-hover:opacity-100 transition-opacity">{item.icon}</span>
 							<span class="text-sm font-semibold text-emerald-950 dark:text-emerald-100 group-hover:text-amber-600 dark:group-hover:text-lime-300 transition-colors">
-                  {item.course}
-                </span>
+								<span data-lang="es">{item.es}</span>
+								<span data-lang="en" class="hidden">{item.en}</span>
+              </span>
 						</div>
 						<div class="hidden sm:block font-mono text-[10px] text-emerald-800/50 dark:text-emerald-700/50 border border-emerald-900/10 dark:border-emerald-700/30 px-2 py-0.5 rounded">
 							VERIFIED
@@ -178,23 +159,20 @@ import '../styles/global.css';
 
 			<h2 class="text-3xl font-extrabold tracking-tight text-emerald-950 dark:text-green-50 mb-4">Proxmox VE Cluster</h2>
 			<p class="text-[15px] leading-relaxed text-emerald-900/70 dark:text-emerald-200/70">
-				<span data-lang="es">Mantenimiento de infraestructura On-Premise para entornos críticos. Máquinas virtuales con GPU Passthrough, servidor Gitea privado, y self-hosted runners para pipelines CI/CD.</span>
-				<span data-lang="en" class="hidden">Maintaining on-premise infrastructure for critical environments. VMs with GPU passthrough, a private Gitea server, and self-hosted runners for CI/CD pipelines.</span>
+				<T k="homelab.desc" />
 			</p>
 		</div>
 		<div class="bg-emerald-950/[.03] dark:bg-[#021b10] border border-emerald-900/10 dark:border-emerald-700/35 rounded-2xl p-6 font-mono text-[13px] shadow-lg shadow-amber-500/5 dark:shadow-lime-500/10">
 			<div class="flex items-center gap-2.5 mb-3.5">
 				<span class="w-2 h-2 rounded-full bg-lime-500 dark:bg-lime-400 shadow-[0_0_12px_4px_rgba(163,230,53,0.6)] animate-pulse"></span>
 				<span class="text-lime-700 dark:text-lime-400 font-semibold">
-            <span data-lang="es">Status: Operativo</span>
-            <span data-lang="en" class="hidden">Status: Operational</span>
+					<T k="homelab.status" />
           </span>
 			</div>
 			<div class="flex items-center gap-2.5 mb-5">
 				<span class="w-2 h-2 rounded-full bg-amber-500 dark:bg-amber-300 shadow-[0_0_12px_4px_rgba(252,211,77,0.5)] animate-pulse"></span>
 				<span class="text-amber-700 dark:text-amber-300 font-semibold">
-            <span data-lang="es">Pipeline: Activo</span>
-            <span data-lang="en" class="hidden">Pipeline: Active</span>
+					<T k="homelab.pipeline" />
           </span>
 			</div>
 			<div class="text-emerald-900/50 dark:text-emerald-700 leading-loose">
@@ -227,6 +205,7 @@ import '../styles/global.css';
 			document.querySelectorAll('[data-lang="en"]').forEach((el) => {
 				el.classList.toggle("hidden", lang !== "en");
 			});
+			document.documentElement.lang = lang;
 			const isDark = document.documentElement.classList.contains("dark");
 			const activeBg = isDark ? "bg-lime-400 text-emerald-950" : "bg-amber-500 text-white";
 			btnEs.className = "font-mono text-[11px] font-bold px-3 py-1.5 rounded-full transition-colors " +

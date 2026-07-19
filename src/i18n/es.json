@@ -1,0 +1,50 @@
+{
+  "nav.energy": "Energía: Fluyendo",
+
+  "hero.bio": "Más de 14 años diseñando sistemas de misión crítica, implementando arquitecturas cloud-native y liderando equipos hacia la excelencia técnica. Apasionado por la observabilidad, la eficiencia y el código limpio.",
+  "hero.contact": "Contactar",
+
+  "casestudy.title": "Arquitectura en Producción",
+  "casestudy.card.title": "Observabilidad Distribuida & CI/CD",
+  "casestudy.card.desc": "Diseño de backends de misión crítica en Python (FastAPI) integrando telemetría profunda con OpenTelemetry. Estrategia de despliegues Zero-Downtime vía GitLab CI hacia entornos contenerizados y monitoreados con Prometheus.",
+
+  "mentoring.title": "Mentoría e Instrucción Técnica Corporativa",
+  "mentoring.desc": "Como instructor oficial, elevo el nivel de ingeniería de las empresas capacitando a sus equipos de TI en tecnologías Cloud-Native, Seguridad y Arquitectura de Software basadas en escenarios reales de producción.",
+  "training.header": "Historial de Capacitaciones Destacadas",
+  "training.courses": [
+    { "date": "2026/2025", "course": "Rocky Linux for Administrators", "icon": "🐧" },
+    { "date": "2024", "course": "Docker y Kubernetes", "icon": "🐳" },
+    { "date": "2024", "course": "Ruta Cloud (Niveles 1, 2 y 3)", "icon": "☁️" },
+    { "date": "2024", "course": "JMeter & Pruebas de Carga", "icon": "⚡" },
+    { "date": "2023", "course": "Desarrollo y Pruebas Seguras de Aplicaciones Web (AppSec)", "icon": "🛡️" },
+    { "date": "2023", "course": "Arquitectura Técnica y Patrones de Diseño", "icon": "🏗️" }
+  ],
+
+  "homelab.desc": "Mantenimiento de infraestructura On-Premise para entornos críticos. Máquinas virtuales con GPU Passthrough, servidor Gitea privado, y self-hosted runners para pipelines CI/CD.",
+  "homelab.status": "Status: Operativo",
+  "homelab.pipeline": "Pipeline: Activo",
+
+  "obs.eyebrow": "Caso de Estudio Arquitectónico",
+  "obs.hero.desc": "Implementando OpenTelemetry y Prometheus en microservicios FastAPI.",
+
+  "obs.challenge.title": "El Reto de Negocio",
+  "obs.challenge.body": "En un ecosistema de microservicios, una petición puede atravesar múltiples contenedores. El reto era eliminar el \"punto ciego\" operativo: reducir el tiempo de resolución de incidentes (MTTR) y garantizar despliegues seguros sin afectar la disponibilidad del servicio.",
+
+  "obs.fig1.caption": "<strong>Fig 1. Topología de Red y Orquestación:</strong> Clúster distribuido en Kubernetes gestionado vía Portainer. Separación física de tráfico mediante Apache APISIX (API Gateway) y segmentación de entornos (Pre/Prod) con acceso aislado a bases de datos.",
+  "obs.fig1.alt": "Diagrama de Implementación de API en Kubernetes",
+
+  "obs.solution.title": "Diseño de la Solución & Trazabilidad",
+  "obs.solution.body": "Se optó por el estándar <strong>OpenTelemetry (OTel)</strong> para la recolección de trazas y <strong>Prometheus</strong> para métricas. El backend fue diseñado en Python utilizando <strong>FastAPI</strong>, aprovechando su naturaleza asíncrona (ASGI) para no penalizar el rendimiento del negocio durante la telemetría.",
+  "obs.solution.callout": "<strong>Observabilidad Profunda:</strong> Esta implementación instrumenta automáticamente las conexiones a la base de datos, permitiendo detectar <em>Slow Queries</em> (consultas de alto consumo de tiempo) a nivel de ORM. Asimismo, todas las peticiones a sistemas de terceros (APIs externas) quedan registradas con <code>Spans</code> dedicados, brindando un mapa de dependencias claro que expone tiempos de latencia y tasas de error en tiempo real.",
+
+  "obs.cicd.title": "Implementación CI/CD (GitLab)",
+  "obs.cicd.body": "La entrega continua se orquestó mediante GitLab CI. El pipeline incluye validación de código (SAST), construcción de imágenes Docker multi-stage y un despliegue bajo estrategia Rolling Update para asegurar Zero-Downtime.",
+
+  "obs.impact.title": "Impacto y Métricas",
+  "obs.impact.mttr.title": "Reducción del MTTR",
+  "obs.impact.mttr.body": "El equipo traza el origen exacto de un error en menos de 2 minutos gracias al traceId propagado.",
+  "obs.impact.speed.title": "Velocidad",
+  "obs.impact.speed.body": "El pipeline automatizado redujo el tiempo de pase a producción de horas a minutos.",
+
+  "obs.footer": "© 2026 Jesus Becerril Navarrete — Caso de estudio."
+}

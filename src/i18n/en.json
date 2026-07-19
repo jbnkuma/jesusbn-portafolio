@@ -1,0 +1,48 @@
+{
+  "nav.energy": "Energy: Flowing",
+
+  "hero.bio": "Over 14 years designing mission-critical systems, implementing cloud-native architectures, and leading teams toward technical excellence. Passionate about observability, efficiency, and clean code.",
+  "hero.contact": "Contact",
+  "casestudy.title": "Architecture in Production",
+  "casestudy.card.title": "Distributed Observability & CI/CD",
+  "casestudy.card.desc": "Designing mission-critical Python (FastAPI) backends integrating deep telemetry with OpenTelemetry. Zero-Downtime deployment strategy via GitLab CI to containerized environments monitored by Prometheus.",
+  "mentoring.title": "Corporate Mentorship & Technical Instruction",
+  "mentoring.desc": "As an official instructor, I raise companies' engineering bar by training their IT teams in Cloud-Native technologies, Security, and Software Architecture based on real-world production scenarios.",
+  "training.header": "Highlighted Training Track Record",
+  "training.courses": [
+    { "date": "2025/2026", "course": "Rocky Linux for Administrators", "icon": "🐧" },
+    { "date": "2024", "course": "Docker & Kubernetes", "icon": "🐳" },
+    { "date": "2024", "course": "Cloud Track (Levels 1, 2 & 3)", "icon": "☁️" },
+    { "date": "2024", "course": "JMeter & Load Testing", "icon": "⚡" },
+    { "date": "2023", "course": "Secure Web Application Development & Testing (AppSec)", "icon": "🛡️" },
+    { "date": "2023", "course": "Technical Architecture & Design Patterns", "icon": "🏗️" }
+  ],
+
+  "homelab.desc": "Maintaining on-premise infrastructure for critical environments. VMs with GPU passthrough, a private Gitea server, and self-hosted runners for CI/CD pipelines.",
+  "homelab.status": "Status: Operational",
+  "homelab.pipeline": "Pipeline: Active",
+
+  "obs.eyebrow": "Architectural Case Study",
+  "obs.hero.desc": "Implementing OpenTelemetry and Prometheus in FastAPI microservices.",
+
+  "obs.challenge.title": "The Business Challenge",
+  "obs.challenge.body": "In a microservices ecosystem, a single request can traverse multiple containers. The challenge was eliminating the operational \"blind spot\": reducing incident resolution time (MTTR) and guaranteeing safe deployments without affecting service availability.",
+
+  "obs.fig1.caption": "<strong>Fig 1. Network Topology & Orchestration:</strong> Distributed Kubernetes cluster managed via Portainer. Physical traffic separation using Apache APISIX (API Gateway) and environment segmentation (Pre/Prod) with isolated database access.",
+  "obs.fig1.alt": "Kubernetes API Deployment Diagram",
+
+  "obs.solution.title": "Solution Design & Traceability",
+  "obs.solution.body": "We adopted the <strong>OpenTelemetry (OTel)</strong> standard for trace collection and <strong>Prometheus</strong> for metrics. The backend was designed in Python using <strong>FastAPI</strong>, leveraging its asynchronous nature (ASGI) to avoid penalizing business performance during telemetry generation.",
+  "obs.solution.callout": "<strong>Deep Observability:</strong> This implementation automatically instruments database connections, allowing the detection of <em>Slow Queries</em> at the ORM level. Furthermore, all outbound requests to third-party systems (External APIs) are recorded with dedicated <code>Spans</code>, providing a clear dependency map that exposes latency times and error rates in real-time.",
+
+  "obs.cicd.title": "CI/CD Implementation (GitLab)",
+  "obs.cicd.body": "Continuous delivery was orchestrated via GitLab CI. The pipeline includes code validation (SAST), multi-stage Docker image builds, and a Rolling Update deployment strategy to ensure Zero-Downtime.",
+
+  "obs.impact.title": "Impact & Metrics",
+  "obs.impact.mttr.title": "MTTR Reduction",
+  "obs.impact.mttr.body": "The team traces the exact origin of an error in under 2 minutes thanks to the propagated traceId.",
+  "obs.impact.speed.title": "Speed",
+  "obs.impact.speed.body": "The automated pipeline cut production release time from hours to minutes.",
+
+  "obs.footer": "© 2026 Jesus Becerril Navarrete — Case study."
+}
