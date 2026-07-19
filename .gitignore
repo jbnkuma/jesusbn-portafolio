@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+.agents/
+.claude/
+agent/
+skills-lock.json
+.firebase/
